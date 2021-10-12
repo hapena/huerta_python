@@ -1,5 +1,9 @@
 # huerta_python
 
+
+                                                           HUERTA INTELIGENTE
+                                                           
+                                                           
 Descripción del proyecto:
 
 El proyecto Huerta Inteligente se plantea en el contexto de la revolución industrial 4.0 y el uso de las TIC en el ámbito urbano; debido a la constante necesidad del uso adecuado de los recursos naturales y en la búsqueda  de incrementar y mejorar la producción de  productos de primera necesidad se genera la idea de automatizar  las huertas existentes o de generar nuevas huertas tecnológicas y controladas para autoconsumo.
