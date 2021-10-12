@@ -30,6 +30,8 @@ Circuito:
 ![image](https://user-images.githubusercontent.com/71275875/136988483-073d0be7-3961-4b2b-9fb6-14ea4bb24947.png)
 
 
+![image](https://user-images.githubusercontent.com/71275875/137043925-6a0dfb74-83b3-4582-8bdd-fb334a80933e.png)
+
 
 Recursos:
 
@@ -45,13 +47,13 @@ Sensor de temperatura y humedad DTH11:
  ![image](https://user-images.githubusercontent.com/71275875/136988862-27d5f0e1-7615-4448-962e-6dc1a25da979.png)
 
  
-El DHT11 es un sensor digital de bajo costo de temperatura y humedad. El sensor de humedad utiliza un principio capacitivo mientras que el de temperatura utiliza un termistor. El sensor se integra fácilmente con un Arduino dado que contiene librerías desarrolladas específicamente para el mismo. Las lecturas del sensor sólo pueden realizarse cada dos segundos
+El DHT11 es un sensor digital de bajo costo de temperatura y humedad. El sensor de humedad utiliza un principio capacitivo mientras que el de temperatura utiliza un termistor. El sensor se integra fácilmente con un Arduino dado que contiene librerías desarrolladas específicamente para el mismo. Las lecturas del sensor sólo pueden realizarse cada dos segundos. El sensor Cuenta con 3 pines (Vcc, GND, OUT) conectados que se conectan a los pines de la tarjeta en el mismo orden a (3.3v, GND, Pin15).
 
 Luz LED 5mm:
  
  ![image](https://user-images.githubusercontent.com/71275875/136988895-b82f9508-9d54-42d0-b04e-e181456c1051.png)
 
-Diodos disponen de un ánodo y un cátodo suelen utilizarse en dispositivos electrónicos como iluminaciones de semáforos, juguetes, publicidades e incluso como alarmas, la funcionalidad varía dependiendo del enfoque que le quiera brindar su usuario.
+Diodos que  disponen de un ánodo y un cátodo suelen utilizarse en dispositivos electrónicos como iluminaciones de semáforos, juguetes, publicidades e incluso como alarmas, la funcionalidad varía dependiendo del enfoque que le quiera brindar su usuario. El led cuenta con dos pines (ánodo  y cátodo) que se conectan a los pines de la tarjeta en el mismo orden a (GND, Pin2 y Pin4).
 
 
 Sensor de humedad suelo: 
@@ -59,7 +61,7 @@ Sensor de humedad suelo:
 ![image](https://user-images.githubusercontent.com/71275875/136988975-20836032-2713-4d83-b3b3-df2434e0c371.png)
 
  
-El módulo sensor de humedad de suelo resulta ser otro módulo que utiliza la conductividad entre dos terminales para determinar ciertos parámetros relacionados a agua, líquidos y humedad.
+El módulo sensor de humedad de suelo resulta ser otro módulo que utiliza la conductividad entre dos terminales para determinar ciertos parámetros relacionados a agua, líquidos y humedad.  El sensor Cuenta con 3 pines ( + , - , s) conectados que se conectan a los pines de la tarjeta en el mismo orden a (3.3v, GND, Pin39).
 
 
 IFTTT: 
@@ -96,93 +98,94 @@ El código ha sido escrito en el lenguaje de programación Python con un enfoque
 
 1.(Líneas 1 a 3) En primer lugar, se importan los módulos “machine, time, urequests, network, DHT11”, para usar los pines de la tarjeta, leer los diferentes sensores y establecer comunicación Wifi para envío de datos a internet a través del uso de diferentes Apis.
 
-import network, time, urequests
-from dht import DHT11
-from machine import Pin, ADC
+    import network, time, urequests
+    from dht import DHT11
+    from machine import Pin, ADC
 
 
 2.(Líneas 5 a 10) Creamos los diferentes objetos que me permitirán realizar la lectura de los diferentes sesnores; entre ellos el objeto “sensor_Hs” que utiliza el pin 36 de la tarjeta para medir la humedad del suelo;
   El “bojeto sensorDHT” que utiliza el pin 15 de la tarjeta y permitirá leer temperatura y humedad ambiente.
   Los Objetos “rojo y Verde” que utilizan los pines 2y 4 y que serán los indicadores de niveles altos o adecuados de las diferentes variables.
 
-sensor_Hs = ADC(Pin(36))  # Creamis el objeto para realizar la lectura de humedad de suelo
-sensor_Hs.width(ADC.WIDTH_12BIT)  # permite regular la precisión de lectura
-sensor_Hs.atten(ADC.ATTN_11DB) # permite trabajar con 3.3v
-sensorDHT = DHT11 (Pin(15))  # Creamos el objeto DHT11 y asignamos el pin apara leer temperatura
-rojo = Pin(2, Pin.OUT)  # Creamos el objeto rojo y asignamos el pin
-verde= Pin(4, Pin.OUT)  # Creamos el objeto verde y asignamos el pin
+    sensor_Hs = ADC(Pin(36))  # Creamis el objeto para realizar la lectura de humedad de suelo
+    sensor_Hs.width(ADC.WIDTH_12BIT)  # permite regular la precisión de lectura
+    sensor_Hs.atten(ADC.ATTN_11DB) # permite trabajar con 3.3v
+    sensorDHT = DHT11 (Pin(15))  # Creamos el objeto DHT11 y asignamos el pin apara leer temperatura
+    rojo = Pin(2, Pin.OUT)  # Creamos el objeto rojo y asignamos el pin
+    verde= Pin(4, Pin.OUT)  # Creamos el objeto verde y asignamos el pin
  
 
 3.(Líneas 14 a 25) Seguido al paso anterior procedemos a crear una nueva función que va a permitir la conexión Wifi de la tarjeta ESP32 a la red especificada en el fragmento de código "conectaWifi". 
 
-def conectaWifi(red, password):
-     global miRed
-     miRed = network.WLAN(network.STA_IF)     
-     if not miRed.isconnected():              #Si no está conectado…
-          miRed.active(True)                   #activa la interface
-          miRed.connect(red, password)         #Intenta conectar con la red
-          print('Conectando a la red', red +"…")
-          timeout = time.time ()
-          while not miRed.isconnected():           #Mientras no se conecte..
-              if (time.ticks_diff (time.time (), timeout) > 10):
-                  return False
-     return True
+    def conectaWifi(red, password):
+         global miRed
+         miRed = network.WLAN(network.STA_IF)     
+         if not miRed.isconnected():              #Si no está conectado…
+              miRed.active(True)                   #activa la interface
+              miRed.connect(red, password)         #Intenta conectar con la red
+              print('Conectando a la red', red +"…")
+              timeout = time.time ()
+              while not miRed.isconnected():           #Mientras no se conecte..
+                  if (time.ticks_diff (time.time (), timeout) > 10):
+                      return False
+         return True
 
 4.(Líneas 30 a 36) Luego procedemos a realizar el llamado a la función conectaWifi con las credenciales del usuario.
   Imprimimos los datos de conexión y creamos las variables url_1 y url_2 que nos va a permitir hacer uso de los applets creados en la página IFTTT:
+  
   url_1: Utiliza el applet que envía datos de los sensores a una hoja de cálculo de Google.
   url_2: Utiliza el applet que envía datos de los sensores a un correo electrónico de Google.
   
-if conectaWifi("red", "password"):
+          if conectaWifi("red", "password"):
 
-    print("Conexión exitosa!")
-    print('Datos de la red (IP/netmask/gw/DNS):', miRed.ifconfig())
-      
-    url_1 = "https://maker.ifttt.com/trigger/sensor_dth/with/key/1pLxYy7JQFxTRYOLtH2_O?"  #  Applet IFTTT
-    url_2 = "https://maker.ifttt.com/trigger/correo_emergencia/with/key/1pLxYy7JQFxTRYOLtH2_O?" # Applet IFTTT
+              print("Conexión exitosa!")
+              print('Datos de la red (IP/netmask/gw/DNS):', miRed.ifconfig())
+
+              url_1 = "https://maker.ifttt.com/trigger/sensor_dth/with/key/1pLxYy7JQFxTRYOLtH2_O?"  #  Applet IFTTT
+              url_2 = "https://maker.ifttt.com/trigger/correo_emergencia/with/key/1pLxYy7JQFxTRYOLtH2_O?" # Applet IFTTT
 
 5.(Líneas 40 a 51) Creamos la función While True; el ciclo infinito que inicia los sensores realiza la lactura de las variables y envia los datos a la url_1.
 
-while (True):
-        
-        time.sleep (4)
-        sensorDHT.measure()
-        temp=sensorDHT.temperature()
-        hum=sensorDHT.humidity()
-        hum_suelo =  int(sensor_Hs.read())
-        print ("T={:02d} ºC, H={:02d}, Hs={:02d} = %".format (temp,hum, hum_suelo))
-        respuesta_1 = urequests.get(url_1+"&value1="+str(temp)+"&value2="+str(hum)+ "&value3="+str(hum_suelo))      
-        print(respuesta_1.text)
-        print (respuesta_1.status_code)
-        respuesta_1.close ()
+      while (True):
+
+              time.sleep (4)
+              sensorDHT.measure()
+              temp=sensorDHT.temperature()
+              hum=sensorDHT.humidity()
+              hum_suelo =  int(sensor_Hs.read())
+              print ("T={:02d} ºC, H={:02d}, Hs={:02d} = %".format (temp,hum, hum_suelo))
+              respuesta_1 = urequests.get(url_1+"&value1="+str(temp)+"&value2="+str(hum)+ "&value3="+str(hum_suelo))      
+              print(respuesta_1.text)
+              print (respuesta_1.status_code)
+              respuesta_1.close ()
 
 6.(Líneas 53 a 83) Creamos las condicionales “if y else” que de acuerdo a los valores de las variables enviaran alertas a los correos electrónicos haciendo uso de la url_2 y encenderán o apagaran los leds indicadores.
 
 
-if hum_suelo < 300 :
-                                    
-            respuesta_2 = urequests.get(url_2+"&value1="+str(hum_suelo))      
-            print(respuesta_2.text)
-            print (respuesta_2.status_code)
-            respuesta_2.close ()
-            time.sleep(10)
-            rojo.value(1)
-            verde.value(0)
- 
-        elif temp> 25 :
-                                    
-            respuesta_2 = urequests.get(url_2+"&value1="+str(temp))      
-            print(respuesta_2.text)
-            print (respuesta_2.status_code)
-            respuesta_2.close ()
-            time.sleep(10)
-            rojo.value(1)
-            verde.value(0)
-            
-        else:
-            
-            rojo.value(0)
-            verde.value(1)
+      if hum_suelo < 300 :
+
+                  respuesta_2 = urequests.get(url_2+"&value1="+str(hum_suelo))      
+                  print(respuesta_2.text)
+                  print (respuesta_2.status_code)
+                  respuesta_2.close ()
+                  time.sleep(10)
+                  rojo.value(1)
+                  verde.value(0)
+
+              elif temp> 25 :
+
+                  respuesta_2 = urequests.get(url_2+"&value1="+str(temp))      
+                  print(respuesta_2.text)
+                  print (respuesta_2.status_code)
+                  respuesta_2.close ()
+                  time.sleep(10)
+                  rojo.value(1)
+                  verde.value(0)
+
+              else:
+
+                  rojo.value(0)
+                  verde.value(1)
  
  
 Resultados: 
