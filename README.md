@@ -137,8 +137,11 @@ d. Se encienden los leds al generar alertas.
 CONCLUSIONES:
 
 se realizó el sistema de control para la Huerta Inteligente, donde al realizar un registro de la temperatura ambiente, Humedad ambiente, y humedad de suelo que será guardado en una hoja de cálculo Google, además de enviar un correo al de alerta a un usuario seleccionado una vez se superen niveles determinados, garantizando así que se lleve un control efectivo del cultivo. Esto se realiza en varios pasos primero se verifica la disponibilidad de conexión de internet, luego se realizan las lecturas a traves de los sensores y por ultimo se utilizan las apllets creadas en IFTTT para envio y almacenamiento de información.
+
 Fue de gran ayuda el conocimiento adquirido en Python y Thonny para que se pudiera llevar a cabo este proyecto y darle una solución al problema planteado ya que, con este lenguaje y este IDE respectivamente, que nos permiten programar en microprocesadores como lo es la tarjeta ESP32 donde están guardados los archivos con la codificación lógica necesaria para cumplir con los objetivos para llegar a la solución del problema.
+
 IFTTT fue muy importante para la realización de envío de información tanto a las hojas de cálculo de Google como a los correos electrónicos ya que de una forma muy sencilla se crea la conexión facilitando así el envío y recepción de información desde la ESP32 a las aplicaciones cabe resaltar que adicional se debe configurar el acceso a la red WIFI desde la ESP32 para su buen funcionamiento en el momento de realizar los envíos.
+
 GitHub fue de gran ayuda ya que ente podemos encontrar muchos proyectos, donde podemos encontrar codificación lógica que nos puede ayudar a dar nuestro primer paso para la realización de nuevos proyectos y generar así las posibles soluciones a diferentes problemas que se puedan plantear.
 
 
