@@ -115,12 +115,12 @@ El código ha sido escrito en el lenguaje de programación Python con un enfoque
  
 Resultados: 
 
-a. Como resultado de la tarea programada podemos observar el histórico de eventos que ha generado el sensor y estos datos son tomados directamente del evento creado. 
+a. Como resultado de la tarea programada podemos observar el histórico de eventos en un documento en linea de Google Drive, que ha generado el sensor y estos datos son tomados directamente del evento creado. 
  
  ![image](https://user-images.githubusercontent.com/71275875/136993813-950a1359-cb12-4925-8634-298e5a4b14c6.png)
 
 
-b. Evento creado para genera una alerta y esta se envié por medio de correo.
+b. Evento creado  genera una alerta y esta se envié por medio de correo electrónico de gmail a un usuario establecido.
 
 ![image](https://user-images.githubusercontent.com/71275875/136994295-93c2ed5f-cc6a-4085-99fa-801bb7023ebe.png)
 
