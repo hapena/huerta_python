@@ -18,7 +18,7 @@ Se cuenta con el material de laboratorio ofrecido por la institución educativa;
 Ambiente de desarrollo: 
 
                         
-![image](https://user-images.githubusercontent.com/71275875/137029844-ef56fb11-10c6-4d38-80aa-a4bb50134257.png)  ![image](https://user-images.githubusercontent.com/71275875/137029863-eaca112c-4a7f-4b29-8f76-93c3647d0e63.png)
+![image](https://user-images.githubusercontent.com/71275875/137029844-ef56fb11-10c6-4d38-80aa-a4bb50134257.png) ![image](https://user-images.githubusercontent.com/71275875/137029863-eaca112c-4a7f-4b29-8f76-93c3647d0e63.png)
 
 
 
