@@ -30,7 +30,10 @@ Circuito:
 ![image](https://user-images.githubusercontent.com/71275875/136988483-073d0be7-3961-4b2b-9fb6-14ea4bb24947.png)
 
 
-![image](https://user-images.githubusercontent.com/71275875/137043925-6a0dfb74-83b3-4582-8bdd-fb334a80933e.png)
+Distribución de Pines:
+
+![image](https://user-images.githubusercontent.com/71275875/137044704-2f3d14c3-6367-4f59-a3f0-a7560df8fffa.png)
+
 
 
 Recursos:
