@@ -144,8 +144,8 @@ El código ha sido escrito en el lenguaje de programación Python con un enfoque
               print("Conexión exitosa!")
               print('Datos de la red (IP/netmask/gw/DNS):', miRed.ifconfig())
 
-              url_1 = "https://maker.ifttt.com/trigger/sensor_dth/with/key/1pLxYy7JQFxTRYOLtH2_O?"  #  Applet IFTTT
-              url_2 = "https://maker.ifttt.com/trigger/correo_emergencia/with/key/1pLxYy7JQFxTRYOLtH2_O?" # Applet IFTTT
+              url_1 = "https://maker.ifttt.com/trigger/sensor_dth/with/key/XXXXXXXXXXXXXXXX?"  #  Applet IFTTT
+              url_2 = "https://maker.ifttt.com/trigger/correo_emergencia/with/key/XXXXXXXXXXXXXXXX?" # Applet IFTTT
 
 5.(Líneas 40 a 51) Creamos la función While True; el ciclo infinito que inicia los sensores realiza la lactura de las variables y envia los datos a la url_1.
 
