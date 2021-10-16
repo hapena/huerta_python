@@ -224,7 +224,5 @@ GitHub fue de gran ayuda ya que ente podemos encontrar muchos proyectos, donde p
 
 
 
-
-
-
 Video:
+https://youtu.be/3Nmunmac9s4
